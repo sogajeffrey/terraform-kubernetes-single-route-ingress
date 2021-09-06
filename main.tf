@@ -1,21 +1,9 @@
-resource "kubernetes_manifest" "certificate" {
-  manifest = {
-    "apiVersion" = "cert-manager.io/v1"
-    "kind"       = "Certificate"
-    "metadata" = {
-      "name"      = var.name
-      "namespace" = var.namespace
-    }
-    "spec" = {
-      "commonName" = var.host
-      "dnsNames"   = ["${var.host}"]
-      "issuerRef" = {
-        "kind" = var.issuer_type
-        "name" = var.issuer
-      }
-      "secretName" = var.name
-    }
-  }
+module "ingress_cert" {
+  source      = "github.com/sogajeffrey/terraform-kubernetes-certmanager-cert?ref=v1.0.0"
+  name        = var.name
+  namespace   = var.namespace
+  common_name = var.host
+  dns_names   = ["${var.host}"]
 }
 
 
