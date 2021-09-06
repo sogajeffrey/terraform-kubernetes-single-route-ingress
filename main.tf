@@ -1,5 +1,5 @@
 module "ingress_cert" {
-  source      = "github.com/sogajeffrey/terraform-kubernetes-certmanager-cert?ref=1.0.0"
+  source      = "github.com/sogajeffrey/terraform-kubernetes-certmanager-cert?ref=v1.0.0"
   name        = var.name
   namespace   = var.namespace
   common_name = var.host
