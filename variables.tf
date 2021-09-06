@@ -22,3 +22,13 @@ variable "traefik_entrypoint" {
   type = string
   default = "websecure"
 }
+
+variable "issuer" {
+  type    = string
+  default = "letsencrypt"
+}
+
+variable "issuer_type" {
+  type = string
+  default = "ClusterIssuer"
+}
